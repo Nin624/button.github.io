@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cute QR Code Button</title>
+<style>
+  body {
+    background: #ffe0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Kalam', cursive;
+    color: #f44884;
+  }
+  button {
+    background: #e95678;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(255 133 162 / 0.4);
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+  }
+  button:hover {
+    background: #ff57a5;
+    box-shadow: 0 12px 20px rgba(255 87 165 / 0.6);
+    transform: translateY(-3px);
+  }
+  button:active {
+    transform: translateY(1px);
+    box-shadow: 0 6px 10px rgba(255 87 165 / 0.4);
+  }
+  .qr-container {
+    margin-top: 30px;
+    display: none;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  img.qr-code {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(82, 46, 66, 0.3);
+    border: 5px solid #dc4872;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+</style>
+</head>
+<body>
+  <button id="showQRBtn" aria-label="Show QR Code">សាក​ចុចហូវ 💖</button>
+  <div class="qr-container" id="qrContainer" aria-live="polite" aria-atomic="true">
+    <img 
+      src="qrcode.jpeg" 
+      alt="QR Code"
+      class="qr-code"
+      />
+  </div>
+
+  <script>
+    const button = document.getElementById('showQRBtn');
+    const qrContainer = document.getElementById('qrContainer');
+
+    button.addEventListener('click', () => {
+      if(qrContainer.style.display === 'none' || qrContainer.style.display === '') {
+        qrContainer.style.display = 'block';
+        button.textContent = 'សាកស្កេនមួយហូវ 💖';
+      }
+    });
+  </script>
+</body>
+</html>
